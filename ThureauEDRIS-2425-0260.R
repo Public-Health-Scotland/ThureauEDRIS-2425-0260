@@ -38,4 +38,39 @@ OutputData <- FullDatabase %>%
          date_first_referral, KRTChangeDate = date1, RRT.Modality, Last_Unit)
 
 
-#missing: DateTx,dt_tx_status, simd_2020v2_sc_decile, quintile
+#missing: dt_tx_status, simd_2020v2_sc_decile, quintile
+#technically missing tx_date but those data are included in the DDT Modality change when a tx occurs.
+
+
+Wb <-  createWorkbook(title = NULL, subject = NULL, category = NULL)
+
+#create worksheets 
+addWorksheet(
+  wb = Wb,
+  sheetName = "Output Data",
+  gridLines = TRUE,
+  zoom = 100,
+  visible = TRUE
+)
+
+#writing in data 
+writeData(
+  # Name of the workbook we want to add the sheet to
+  wb = Wb,
+  # Name of tab to save the data to 
+  sheet = "Output Data", 
+  # Name of the dataset we want to write out
+  OutputData, 
+  # Column we want the data to start from
+  startCol = 1,
+  # Row we want the data to start from 
+  startRow = 1 
+)
+
+
+saveWorkbook(
+  wb = Wb,
+  # File path to save out 
+  file = paste0(OutputFolder,'/ThureaduEDRIS-2425-0260_OutputDataV1.xlsx'),
+  overwrite = TRUE
+)
