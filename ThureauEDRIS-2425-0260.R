@@ -29,6 +29,13 @@ SRR_Patients <- read.xlsx('//conf/quality/srr/Active/(04) Project Reports/Annual
 SRR_Data <- left_join(SRR_Patients, Deaths_Full, by = 'chi_formatted')
 
 FullDatabase <- scidc_cohort %>% 
-  inner_join(SRR_Data, by = 'chi_formatted') %>% 
-  select(id, )
+  inner_join(SRR_Data, by = 'chi_formatted') 
 
+OutputData <- FullDatabase %>% 
+  filter(StartKRT > '1981-01-01') %>% 
+  select(id, chi_formatted, FormattedPostcode, StartKRT, First_Type, First_Unit, PRD_Code, Sex = Gender,
+         Type_Transplant, dt_1st_tx_failed, source_transplant = DBD_DCD_LRD_LUD, date_of_death.y, Ethnicity, 
+         date_first_referral, KRTChangeDate = date1, RRT.Modality, Last_Unit)
+
+
+#missing: DateTx,dt_tx_status, simd_2020v2_sc_decile, quintile
