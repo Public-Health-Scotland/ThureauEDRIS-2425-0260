@@ -23,8 +23,8 @@ scidc_cohort <- readr::read_csv(external_cohort_folder, col_types = 'cc') %>%
 
 #Read in SRR databases
 
-Deaths_Full <- read.xlsx('//conf/quality/srr/Active/(04) Project Reports/Annual Reports/2025/Extracts/Deaths_Full.xlsx', detectDates = T)
-SRR_Patients <- read.xlsx('//conf/quality/srr/Active/(04) Project Reports/Annual Reports/2025/Extracts/SRR_Patients_Static.xlsx', detectDates = T)
+Deaths_Full <- read.xlsx('//conf/quality/srr/Active/(04) Project Reports/Annual Reports/2026/Extracts/Deaths_Full.xlsx', detectDates = T)
+SRR_Patients <- read.xlsx('//conf/quality/srr/Active/(04) Project Reports/Annual Reports/2026/Extracts/SRR_Patients_Static.xlsx', detectDates = T)
 
 SRR_Data <- left_join(SRR_Patients, Deaths_Full, by = 'chi_formatted')
 
