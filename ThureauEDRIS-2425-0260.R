@@ -35,7 +35,7 @@ OutputData <- FullDatabase %>%
   filter(StartKRT > '1981-01-01') %>% 
   filter(date1 < '2024-12-31') %>% 
   select(id, chi_formatted, FormattedPostcode, StartKRT, First_Type, First_Unit, PRD_Code, Sex = Gender,
-         Type_Transplant, dt_1st_tx_failed, source_transplant = DBD_DCD_LRD_LUD, date_of_death.y, Ethnicity, 
+         Type_Transplant, dt_1st_tx_failed, source_transplant = DBD_DCD_LRD_LUD, Date_Of_Death = date_of_death.y, Ethnicity, 
          date_first_referral, KRTChangeDate = date1, RRT.Modality, Last_Unit)
 
 
